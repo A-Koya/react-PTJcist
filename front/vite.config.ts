@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import tsconfigPath from "vite-tsconfig-paths"
@@ -5,4 +6,9 @@ import tsconfigPath from "vite-tsconfig-paths"
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), tsconfigPath()],
+  test: {
+    globals: true,
+    environment: "happy-dom",
+    setupFiles: "./vitest-setup.ts"
+  }
 })
