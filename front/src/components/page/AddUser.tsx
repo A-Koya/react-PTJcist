@@ -35,14 +35,14 @@ export const AddUser = () => {
                 <img src={cist_logo} alt="大学ロゴマーク" width={300} className='mx-auto mb-6' />
                 <div className="font-bold text-xl text-center mb-8 border-b-2 border-slate-600 pb-4 mx-auto">新規登録</div>
                 <div className='flex flex-col space-y-8'>
-                    <div className="max-w-lg">
+                    <label className="max-w-lg">
                         <div className="font-semibold mb-2">学籍番号:</div>
                         <input className='border border-black rounded-md w-full h-10 px-2' type="text" name='userName' value={userInfo.name} onChange={(e) => changeName(e)} />
-                    </div>
-                    <div className="max-w-lg">
+                    </label>
+                    <label className="max-w-lg">
                         <div className="font-semibold mb-2">password:</div>
                         <input className='border border-black rounded-md w-full h-10 px-2' type="text" name='password' value={userInfo.password} onChange={(e) => changePass(e)} />
-                    </div>
+                    </label>
                     {errorText && (<Alert text={errorText} />)}
                     <div className='flex justify-between mt-1'>
                         <OrangeButton text="新規登録" onClick={() => createUser()} />
