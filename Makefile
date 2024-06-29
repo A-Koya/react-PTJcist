@@ -16,3 +16,5 @@ react-install-dev:
 	docker compose -f docker-compose.setup.yml run --rm installer-dev
 node-module-clean:
 	docker volume rm react-ptjcist_node-modules-volume
+clear-db:
+	docker volume rm react-ptjcist_cist_ptj_data

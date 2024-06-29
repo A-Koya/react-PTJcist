@@ -40,18 +40,20 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./docker/db/data:/var/lib/mysql
+      - cist_ptj_data:/var/lib/mysql
       - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./docker/db/entry:/docker-entrypoint-initdb.d
+    tty: true
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin-container
     environment:
-      PMA_HOST: cist_ptj
+      PMA_HOST: mysql
       MYSQL_ROOT_PASSWORD: password
     ports:
       - "8081:80"
     depends_on:
       - mysql
 volumes:
+  cist_ptj_data:
   node-modules-volume:
