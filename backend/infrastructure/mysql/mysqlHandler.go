@@ -14,9 +14,8 @@ type mysqlHandler struct {
 }
 
 func NewMysqlHandler() (*mysqlHandler, error) {
-	db, err := sql.Open("mysql", "username:password@tcp(localhost:3306)/dbname")
+	db, err := sql.Open("mysql", "user1:password@tcp(localhost:3306)/cist_ptj")
 	if err != nil {
-		fmt.Println("DB connection failed")
 		return &mysqlHandler{}, nil
 	}
 	err = db.Ping()

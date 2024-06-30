@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"A-Koya/react-PTJcist/infrastructure"
+)
 
 func main() {
-	fmt.Println("Hello")
+	app := infrastructure.NewConfig().Mysql().WebServer()
+	app.Start()
 }

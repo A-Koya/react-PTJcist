@@ -13,7 +13,7 @@ func newMysqlRow(row *sql.Row) mysqlRow {
 }
 
 func (mr mysqlRow) Scan(dest ...interface{}) error {
-	if err := mr.Scan(dest...); err != nil {
+	if err := mr.row.Scan(dest...); err != nil {
 		return err
 	}
 	return nil
