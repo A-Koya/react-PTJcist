@@ -1,7 +1,7 @@
 import { login, responseMessage } from '@/types/user'
 import { useState } from 'react'
 import { Alert } from '../atoms/Alert';
-import { OrangeButton } from '@/components/atoms/OrangeButton';
+import { Button } from '@/components/atoms/Button';
 import cist_logo from "@/public/cist_logo.png"
 import cist_background from "@/public/cist_background.png"
 import { APIPost } from '@/function/API/APIPost';
@@ -45,7 +45,7 @@ export const AddUser = () => {
                     </label>
                     {errorText && (<Alert text={errorText} />)}
                     <div className='flex justify-between mt-1'>
-                        <OrangeButton text="新規登録" onClick={() => createUser()} />
+                        <Button text="新規登録" onClick={() => createUser()} />
                     </div>
                 </div>
             </div>
