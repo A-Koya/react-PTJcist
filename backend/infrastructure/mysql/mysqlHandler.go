@@ -5,6 +5,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"log"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -14,16 +15,15 @@ type mysqlHandler struct {
 }
 
 func NewMysqlHandler() (*mysqlHandler, error) {
-	db, err := sql.Open("mysql", "user1:password@tcp(localhost:3306)/cist_ptj")
+	dsn := "user1:password@tcp(mysql:3306)/cist_ptj?charset=utf8mb4&parseTime=True&loc=Asia%2FTokyo"
+	db, err := sql.Open("mysql", dsn)
 	if err != nil {
-		return &mysqlHandler{}, nil
+		log.Fatal(fmt.Printf("db connection failed:%e", err))
 	}
 	err = db.Ping()
 	if err != nil {
-		fmt.Println("DB ping failed")
-		return &mysqlHandler{}, nil
+		log.Fatal(fmt.Printf("db ping failed:%e", err))
 	}
-	defer db.Close()
 	return &mysqlHandler{db: db}, nil
 }
 

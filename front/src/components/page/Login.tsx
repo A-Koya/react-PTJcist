@@ -8,7 +8,7 @@ import { APIPost } from '@/function/API/APIPost';
 import { Link } from 'react-router-dom';
 
 
-export const AddUser = () => {
+export const Login = () => {
     const [userInfo, setUserInfo] = useState<login>({ id: "", password: "" })
     const [errorText, setErrorText] = useState<string>('')
     const changeName = (e: any) => {
@@ -19,7 +19,6 @@ export const AddUser = () => {
     }
     const createUser = () => {
         const func = async () => {
-            console.log(userInfo)
             setErrorText("")
             const res: responseMessage = await APIPost<login>("account/create", userInfo)
             if (res.errorMessage) {
@@ -39,7 +38,7 @@ export const AddUser = () => {
         }} className=''>
             <div className="bg-green-300 p-8 max-w-lg rounded-xl mx-auto">
                 <img src={cist_logo} alt="大学ロゴマーク" width={300} className='mx-auto mb-6' />
-                <div className="font-bold text-xl text-center mb-8 border-b-2 border-slate-600 pb-4 mx-auto">新規登録</div>
+                <div className="font-bold text-xl text-center mb-8 border-b-2 border-slate-600 pb-4 mx-auto">ログイン</div>
                 <div className='flex flex-col space-y-8'>
                     <label className="max-w-lg">
                         <div className="font-semibold mb-2">学籍番号:</div>
@@ -51,9 +50,9 @@ export const AddUser = () => {
                     </label>
                     {errorText && (<Alert text={errorText} />)}
                     <div className='flex justify-between mt-1'>
-                        <Button text="新規登録" onClick={() => createUser()} />
-                        <Link to={"/"}>
-                            <Button text="ログインページへ" onClick={() => createUser()} />
+                        <Button text="ログイン" onClick={() => createUser()} />
+                        <Link to={"/addUser"}>
+                            <Button text="新規登録ページへ" onClick={() => createUser()} />
                         </Link>
                     </div>
                 </div>

@@ -1,9 +1,9 @@
 export type login = {
-    name: string
+    id: string
     password: string
 }
 
 export type responseMessage = {
-    success: string
-    error: string
+    successMessage: string
+    errorMessage: string
 }
